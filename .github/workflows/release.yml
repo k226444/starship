@@ -8,14 +8,14 @@ env:
   CARGO_NET_RETRY: 10
   RUST_BACKTRACE: short
   RUSTUP_MAX_RETRIES: 10
-  MACOSX_DEPLOYMENT_TARGET: 10.7
+  MACOSX_DEPLOYMENT_TARGET: 11.7
 
 jobs:
   # Update release PR
   release_please:
     name: Release Please
     runs-on: ubuntu-latest
-    if: github.repository == 'starship/starship'
+    if: github.repository == 'k226444/starship'
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
@@ -347,7 +347,7 @@ jobs:
       - name: Setup | Checkout
         uses: actions/checkout@v3
       - name: Merge | Merge Crowdin PR
-        run: gh pr merge i18n_master --squash --repo=starship/starship
+        run: gh pr merge i18n_master --squash --repo=k226444/starship
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
